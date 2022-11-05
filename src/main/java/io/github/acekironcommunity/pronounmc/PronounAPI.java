@@ -14,7 +14,7 @@ import io.github.acekironcommunity.pronounmc.tpo.PronounDBOverrider;
 
 public class PronounAPI {
 
-    private static HashMap<UUID, List<String>> cache = new HashMap<UUID, List<String>>();
+    private static HashMap<UUID, List<String>> cache;
 
     private static File playerPronounsFile;
     private static YamlConfiguration playerPronounsConfig;
@@ -26,6 +26,8 @@ public class PronounAPI {
 
     public PronounAPI(MyPlugin plugin) {
         Utils.log("Initialized PronounMC API.", true);
+
+        cache = new HashMap<UUID, List<String>>();
 
         logChanges = plugin.getConfig().getBoolean("log-changes");
         pronounOverride = Utils.getPronounOverride();

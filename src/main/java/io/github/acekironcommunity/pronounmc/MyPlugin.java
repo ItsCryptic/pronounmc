@@ -2,6 +2,7 @@ package io.github.acekironcommunity.pronounmc;
 
 import io.github.acekironcommunity.pronounmc.commands.AddPronounCommand;
 import io.github.acekironcommunity.pronounmc.commands.GetPronounsCommand;
+import io.github.acekironcommunity.pronounmc.commands.PMCReloadCommand;
 import io.github.acekironcommunity.pronounmc.commands.RemovePronounCommand;
 import io.github.acekironcommunity.pronounmc.commands.UnusedCommand;
 import io.github.acekironcommunity.pronounmc.handlers.ChatHandler;
@@ -11,6 +12,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class MyPlugin extends JavaPlugin {
+
+    public static PronounAPI papi;
 
     @Override
     public void onEnable() {
@@ -29,25 +32,32 @@ public final class MyPlugin extends JavaPlugin {
 
         if (getConfig().getBoolean("handle-chat")) new ChatHandler(this);
 
-        new PronounAPI(this);
+        Reload();
+    }
+
+    public static void Reload() {
+        MyPlugin instance = Utils.GetPlugin();
+
+        MyPlugin.papi = new PronounAPI(instance);
 
         PronounsTabCompleter pronounsTabCompleter = new PronounsTabCompleter();
 
         boolean pronounOverrideEnabled = Utils.getPronounOverrideEnabled();
 
-        getCommand("getpronouns").setExecutor(new GetPronounsCommand());
+        instance.getCommand("getpronouns").setExecutor(new GetPronounsCommand());
+        instance.getCommand("pmcreload").setExecutor(new PMCReloadCommand());
 
         if (pronounOverrideEnabled) {
             UnusedCommand cmdHandler = new UnusedCommand();
             
-            getCommand("addpronoun").setExecutor(cmdHandler);
-            getCommand("removepronoun").setExecutor(cmdHandler);
+            instance.getCommand("addpronoun").setExecutor(cmdHandler);
+            instance.getCommand("removepronoun").setExecutor(cmdHandler);
         } else {
-            getCommand("addpronoun").setExecutor(new AddPronounCommand());
-            getCommand("addpronoun").setTabCompleter(pronounsTabCompleter);
+            instance.getCommand("addpronoun").setExecutor(new AddPronounCommand());
+            instance.getCommand("addpronoun").setTabCompleter(pronounsTabCompleter);
 
-            getCommand("removepronoun").setExecutor(new RemovePronounCommand());
-            getCommand("removepronoun").setTabCompleter(pronounsTabCompleter);
+            instance.getCommand("removepronoun").setExecutor(new RemovePronounCommand());
+            instance.getCommand("removepronoun").setTabCompleter(pronounsTabCompleter);
         }
     }
 

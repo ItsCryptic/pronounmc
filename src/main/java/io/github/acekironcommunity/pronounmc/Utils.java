@@ -5,12 +5,24 @@ import org.bukkit.ChatColor;
 
 public class Utils {
 
+    private static MyPlugin plugin;
+
     private static String messagePrefix;
     private static boolean verboseLogging;
     private static boolean pronounOverrideEnabled;
     private static String pronounOverride;
 
     public static void SetPlugin(MyPlugin plugin) {
+        Utils.plugin = plugin;
+
+        ReloadConfig();
+    }
+
+    public static MyPlugin GetPlugin() {
+        return plugin;
+    }
+
+    public static void ReloadConfig() {
         messagePrefix = plugin.getConfig().getString("message-prefix");
         verboseLogging = plugin.getConfig().getBoolean("verbose-logging");
         pronounOverrideEnabled = plugin.getConfig().getBoolean("enable-third-party-override");

@@ -26,3 +26,8 @@ commands:
     usage: /getpronouns [player]
     permission: pronounmc.get
     permission-message: "PronounMC: Missing the pronounmc.get permission."
+  pmcreload:
+    description: "Reload everything related to PronounMC"
+    usage: /pmcreload
+    permission: pronounmc.reload
+    permission-message: "PronounMC: Missing the pronounmc.reload permission."

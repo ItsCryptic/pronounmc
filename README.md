@@ -51,6 +51,7 @@ Command + Syntax | Description | Required permission | Optional permissions |
 | /addpronouns \<pronoun\> [player] | Add pronouns to yourself or someone else | pronounmc.modify | pronounmc.modify.other |
 | /removepronouns \<pronoun\> [player] | Remove pronouns from yourself or someone else | pronounmc.modify | pronounmc.modify.other |
 | /getpronouns [player] | Get your own or someone else's pronouns | pronounmc.get | pronounmc.get.other |
+| /pmcreload | Reload everything related to PronounMC | pronounmc.reload | |
 
 ***
 <br>
@@ -62,7 +63,9 @@ Permission | Description |
 | pronounmc.modify.other | Modify someone else's pronouns |
 | pronounmc.get | Get your own pronouns |
 | pronounmc.get.other | Get someone else's pronouns (applies to the command, not chat) |
+| pronounmc.reload | Reload everything related to PronounMC |
 
 ## Placeholders
 Placeholder | Description |
+|---|---|
 |%pronounmc_pronouns% | Displays player's pronouns |
