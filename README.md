@@ -6,7 +6,7 @@
 [![Twitter](https://img.shields.io/badge/%40_Mx_Ace--blue.svg?style=social&logo=Twitter)](https://twitter.com/_Mx_Ace)
 [![Discord](https://img.shields.io/badge/AceKiron%20Studio--blue.svg?style=social&logo=Discord)](https://dsc.gg/acekiron-studio)
 
-![Workflow status](https://img.shields.io/github/workflow/status/AceKiron/pronounmc/Build)
+![Workflow status](https://img.shields.io/github/actions/workflow/status/AceKiron/pronounmc/build.yml?branch=main)
 </div>
 
 ![PronounMC](/Resources/Branding/PronounMCLogo.png?raw=true "PronounMC")
